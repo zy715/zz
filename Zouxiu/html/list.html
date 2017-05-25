@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>window.PointerEvent = void 0</script>
+		<meta name="viewport" content="width=device-width, 
+initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="blank" />
+<meta name="format-detection" content="telephone=no" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/icons/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../js/download/font_xn1yqmwxvftotj4i/iconfont.css" />
+		<script src="../js/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/zepto.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/iscroll.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css">
+			html, body {
+				width: 100%;
+				height: 100%;
+			}
+			body {
+				display: flex; flex-direction: column;
+			}
+			header {
+				width: 100%;
+				height: 0.88rem;
+				background: #aa1818;
+				color: #fff;
+				font-size: 0.38rem;
+				line-height: 0.88rem;
+				text-indent: 35%;
+			}
+			#car {
+				width:1rem;
+				height:.55rem;
+				float:right;
+				font-size: .4rem;
+				line-height: .55rem;
+				color: #fff;
+				border: 1px solid #000;
+				border-radius: 0.09rem;
+				margin: .15rem .2rem 0 0;
+				text-align: center;
+				text-indent: 0;
+			}
+			#wrap {
+				flex: 1;
+				overflow: hidden;
+			}
+			.footer {
+				width: 100%;
+				height: 0.89rem;
+				background: #484850;
+				/*margin-top: 1.4rem;*/
+				font-size: 0;
+			}
+			
+			.footer li {
+				padding-top: 0.05rem;
+				float: left;
+				width: 1.2rem;
+				text-align: center;
+				font-size: 0.22rem;
+			}
+			
+			.footer li i {
+				font-size: 0.51rem;
+			}
+			
+			.nav #line {
+				width: 0.16rem;
+				height: 0.07rem;
+				color: #fff;
+				position: absolute;
+				left: 0.43rem;
+				top: 0.36rem;
+				display: block;
+			}
+			footer {
+				width: 100%;
+				height: .85rem;
+				background: #484850;
+				padding-top: .15rem;
+			}
+			footer ul {
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				
+			}
+			footer ul li {
+				float: left;
+				color: #fff;
+				width: 1.28rem;
+				height: 100%;
+			}
+			footer ul li>a {
+				display: block;
+				color: #FFF;
+			}
+			footer .ul1 i {
+				font-size:.5rem;
+				
+			}
+			.nav {
+				height: .57rem;
+				background: #9a9fa5;
+				font-size: .40rem;
+				width: 140%;
+				margin: 0 auto;
+			}
+			.nav i {
+				padding-right:.35rem;
+			}
+			.nav i:nth-child(1){
+				padding-left: .35rem;
+			}
+			.onav {
+				background:#9a9fa5 ;
+				width: 100%;
+				overflow: hidden;
+			}
+			#wrap .con {
+				overflow: hidden;
+			}
+			#wrap .con img {
+				width: 2.4rem;
+				height: 2.4rem;
+				border-radius: 0.07rem;
+			}
+			#wrap .con li{
+				width: 2.4rem;
+				height: 3.2rem;
+				margin: .35rem .4rem 0 .4rem;
+				float: left;
+			}
+			#wrap .con li>a{
+				float: left;
+			}
+			.tip {
+				font-size: 0.2rem;
+				line-height: 0.2rem;
+				text-align: center;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			新品上市
+			 <a href="cart.html"><i class="icon iconfont" id="car">&#xe61b;</i></a>
+		</header>
+		<div class="onav">
+			<div class="nav">
+			</div>
+		</div>
+		
+		<div id="wrap">
+			<div>
+				<ul class="con">
+					
+				</ul>
+				<p class="tip">以上是全部商品哦</p>
+			</div>
+		</div>
+		<div class="footer">
+			<ul>
+				<li>
+					<a class="cl11">
+						<i class="iconfont" style="color: #fff;font-size: 0.42rem;">&#xe644;</i><br />
+						<span style="color: #fff;font-size: 0.24rem;">首页</span>
+					</a>
+
+				</li>
+				<li style="border-top: 3px solid #d71110;">
+					<a class="cl12">
+						<i class="iconfont" style="color: #fff;font-size: 0.42rem;">&#xe7d5;</i><br />
+						<span style="color: #fff;font-size: 0.24rem;">分类</span>
+					</a>
+
+				</li>
+				<li>
+					<a class="cl13">
+						<i class="iconfont" style="color: #fff;font-size: 0.42rem;margin-left: 0.1rem;">&#xe61b;</i><br />
+						<span style="color: #fff;font-size: 0.24rem;">购物车</span>
+					</a>
+
+				</li>
+				<li>
+					<a class="cl14">
+						<i class="iconfont" style="color: #fff;font-size: 0.42rem; margin-left: 0.1rem;">&#xe677;</i><br />
+						<span style="color: #fff;font-size: 0.24rem;">我的秀</span>
+					</a>
+
+				</li>
+				<li>
+					<a class="ll">
+						<i class="iconfont" style="color: #fff;font-size: 0.42rem;">&#xe601;</i><br />
+						<span style="color: #fff;font-size: 0.24rem;">更多</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		$(function () {
+			var mywrap = new IScroll('#wrap')
+			
+			
+			var myScroll = new IScroll('.onav',{
+				scrollX :true,
+				scrollY:false,
+			});
+			//
+			function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return unescape(r[2]);
+				return null;
+			}
+			
+			
+			//跳转地址栏传参封装
+			function log(a, b) {
+				a.on("tap", function() {
+					console.log(window.location.search.split("?user=")[1])
+					if(window.location.search) {
+						var good = GetQueryString(b)
+						location.href = $(this).attr("href") + "&&" + b + "=" + good
+					} else if(localStorage.getItem(b)) {
+						location.href = $(this).attr("href") + "&&" + b + "=" + localStorage.getItem(b)
+					} else {
+						location.href = $(this).attr("href")
+					}
+				})
+			}
+			
+			
+			//页面切换封装
+			
+			function log1(c, d, e) {
+
+				if(window.location.search) {
+					var good = GetQueryString(d)
+					console.log(good)
+					c.attr("href", e + "?" + d + "=" + good)
+				} else if(localStorage.getItem(d)) {
+					c.attr("href", e + "?" + d + "=" + localStorage.getItem(d))
+				} else {
+					c.attr("href", e)   
+				}
+			}
+			
+			log1($(".ll"), "user",'choujiang.html');	
+			var str = '';
+			//加载头部导航部分
+			$.ajax({
+						type:"get",
+						url:"http://datainfo.duapp.com/shopdata/getclass.php",
+						dataType:'json',
+						success:function (data) {
+							data.map(function (val,index) {
+								str+='<i class="icon iconfont">'+data[index].icon+'</i>'
+							})
+							$('.nav').html(str)
+							setTimeout(function () { myScroll.refresh(); }, 0);
+//							
+						}
+					});
+					
+			//首次加载页面		
+			var str1 = '';
+			$.ajax({
+						type:"get",
+						url:"http://datainfo.duapp.com/shopdata/getGoods.php",
+						dataType:'jsonp',
+						success:function (data) {
+							data.map(function (val,index) {
+								str1+='<li><a href="detail.html?good='+data[index]["goodsID"]+'" class="tap1"><img src="'+data[index].goodsListImg+'"/><p>'+data[index].goodsName+'</p><div><span>'+Number(data[index].price)*Number(data[index].discount)/10+'</span><span>'+data[index].price+'</span></a></li>'
+							})
+							$(".con").append(str1)
+//							var mywrap = new IScroll('#wrap')
+							setTimeout(function () { mywrap.refresh(); }, 0);
+							
+							log($('.tap1'),"user")
+							log1($(".cl11"), "user", "first.html");
+							log1($(".cl12"), "user", "list.html");
+							log1($(".cl13"), "user", "cart.html");
+							log1($(".cl14"), "user", "mayxiu.html");
+							log($(".ll"), "user", "choujiang.html");
+
+						}
+					});
+				
+				
+		//求换商品类
+					
+					$(".nav").on('tap','.icon',function () {
+						$(this).css('color','#fff').siblings().css('color','#000'),
+						console.log($(this).index())
+						$.ajax({
+							type:"get",
+							url:"http://datainfo.duapp.com/shopdata/getGoods.php",
+							dataType:'jsonp',
+							data:{
+								classID: $(this).index()
+							},
+							success:function (data) {
+								var lis = ''
+
+							data.map(function (val,index) {
+								
+								lis+='<li><a href="detail.html?good='+data[index]["goodsID"]+'" class="tap1"><img src="'+data[index].goodsListImg+'"/><p>'+data[index].goodsName+'</p><div><span>'+Number(data[index].price)*Number(data[index].discount)/10+'</span><span>'+data[index].price+'</span></a></li>'
+							})
+							$(".con").html(lis)
+//							var mywrap = new IScroll('#wrap')
+							setTimeout(function () { mywrap.refresh(); }, 0);
+							log($('.tap1'),"user")
+							log1($(".cl11"), "user", "first.html");
+							log1($(".cl12"), "user", "list.html");
+							log1($(".cl13"), "user", "cart.html");
+							log1($(".cl14"), "user", "mayxiu.html");
+							}
+							
+						})
+					})
+							
+			//下拉刷新
+			var numb=0
+			$(document).on("touchend", function() {
+				if(mywrap.y > 25) {
+					
+					var num = Math.floor(Math.random() * 7)
+					$.ajax({
+						type: "get",
+						url: "http://datainfo.duapp.com/shopdata/getGoods.php",
+						data: {
+							classID: num
+						},
+						dataType: "jsonp",
+						success: function(data) {
+							var lis = ''
+
+							data.map(function (val,index) {
+								
+								lis+='<li><a href="detail.html?good='+data[index]["goodsID"]+'" class="tap1"><img src="'+data[index].goodsListImg+'"/><p>'+data[index].goodsName+'</p><div><span>'+Number(data[index].price)*Number(data[index].discount)/10+'</span><span>'+data[index].price+'</span></a></li>'
+							})
+							$(".con").html(lis)
+							
+							setTimeout(function () { mywrap.refresh(); }, 0);
+							log($('.tap1'),"user")
+							log1($(".cl11"), "user", "first.html");
+							log1($(".cl12"), "user", "list.html");
+							log1($(".cl13"), "user", "cart.html");
+							log1($(".cl14"), "user", "mayxiu.html");
+						}
+					})
+				}
+				
+				
+					//上拉加载
+				if(mywrap.y < mywrap.maxScrollY - 25) {
+					$.ajax({
+						type: "get",
+						url: "http://datainfo.duapp.com/shopdata/getGoods.php",
+						data: {
+							classID: numb
+						},
+						dataType: "jsonp",
+						success: function(data) {
+							if(numb < 7) {
+							var lis = ''
+
+							data.map(function (val,index) {
+								
+								lis+='<li><a href="detail.html?good='+data[index]["goodsID"]+'" class="tap1"><img src="'+data[index].goodsListImg+'"/><p>'+data[index].goodsName+'</p><div><span>'+Number(data[index].price)*Number(data[index].discount)/10+'</span><span>'+data[index].price+'</span></a></li>'
+							})
+							$(".con").append(lis)
+							setTimeout(function () { mywrap.refresh(); }, 0);
+								txt = "";
+								numb += 1;
+								console.log(numb)
+							} else {
+								$(".tip").css({
+									display: "block"
+								})
+							}
+							log($('.tap1'),"user")
+							log1($(".cl11"), "user", "first.html");
+							log1($(".cl12"), "user", "list.html");
+							log1($(".cl13"), "user", "cart.html");
+							log1($(".cl14"), "user", "mayxiu.html");
+						}
+					})
+				}
+				
+			})
+				
+	
+		})
+	</script>
+</html>

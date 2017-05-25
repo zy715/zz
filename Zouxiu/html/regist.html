@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, 
+initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="blank" />
+<meta name="format-detection" content="telephone=no" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<script src="../js/rem.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				background: #f3eff0;
+			}
+			input {
+				background: none;
+				border: none;
+			}
+			header{
+				width: 100%;
+				height: 0.88rem;
+				font-size: 0.34rem;
+				color: #fff;
+				line-height: 0.88rem;
+				background: #a90506;
+				text-indent: 2rem;
+			}
+			.fan {
+				width: .43rem;
+				height: .41rem;
+				float: left;
+				margin: .23rem 0 0 .25rem;
+			}
+			.out {
+				width: 5.8rem;
+				margin: 0 auto;
+			}
+			.uname {
+				width: 5.8rem;
+				height: 0.88rem;
+				background: #fff;
+				font-size: 0.28rem;
+				line-height: 0.88rem;
+				margin-top: 0.3rem;
+				border-radius: 0.05rem;
+				
+			}
+			.uname label {
+				margin-left: 0.2rem;
+			}
+			.uname input {
+				font-size: 0.28rem;
+				line-height: 0.88rem;
+				color: #000;
+			}
+			　::-webkit-input-placeholder {
+			　　color:#ccc;
+			　　}
+			.upsd {
+				width: 5.8rem;
+				height: 0.88rem;
+				background: #fff;
+				font-size: 0.28rem;
+				line-height: 0.88rem;
+				margin-top: 0.3rem;
+				border-radius: 0.05rem;
+				
+			}
+			.upsd label {
+				margin-left: 0.2rem;
+			}
+			.upsd input {
+				font-size: 0.28rem;
+				line-height: 0.88rem;
+				color: #ccc;
+			}
+			.regist {
+				width:5.8rem;
+				height: 0.9rem;
+				font-size: .35rem;
+				line-height: .9rem;
+				text-align: center;
+				border: 1px solid #000;
+				background:#c60808;
+				margin:1.8rem auto 0;
+				font-weight: 600;
+				color: #fff;
+				border-radius: 0.05rem;
+				display: block;
+			}
+			.tip {
+				height: .88rem;
+				width: 5.8rem;
+				font-size: .35rem;
+				line-height: .88rem;
+				text-align: center;
+				color: indianred;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<img src="../img/fan.gif" class="fan"/>
+			用户注册
+		</header>
+		<div class="out">
+			<div class="uname">
+				<label for='uname'>账户名称:</label>
+				<input type="text" name="uname" id="uname" value="" placeholder="请输入账户" />
+			</div>
+			<div class="upsd">
+				<label for='upsd'>登录密码:</label>
+				<input type="password" name="upsd" id="upsd" value="" placeholder="请输入密码" />
+			</div>
+			<div class="upsd">
+				<label for='epsd'>确认密码:</label>
+				<input type="password" name="epsd" id="epsd" value="" placeholder="请确认密码"/>
+			</div>
+			<div>
+				<div class="regist">确定注册</div>
+			</div>
+			<div>
+				<div class="tip"></div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="../js/zepto.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('.regist').on('tap',function () {
+				if ($('#uname').val()!=''&&$('#upsd').val()!=''&&$('epsd').val()!=''){
+					
+					$.ajax({
+						type:"get",
+						url:"http://datainfo.duapp.com/shopdata/userinfo.php",
+						dataType:'JSON',
+						data:{
+							status:'register',
+							userID:$('#uname').val(),
+							password:$('#upsd').val()
+						},
+						success:function (data) {
+							if (data==0) {
+								$('.tip').html('用户名已存在')
+							}else if (data==1) {
+								$('.tip').html('注册成功即将跳转')
+								setTimeout(function () {
+								window.location.href='login.html'
+								},1500)
+								
+							}else{
+								$('.tip').html('服务忙！')
+							}
+						}
+					});
+				}else{
+					alert('不能为空')
+				}
+			})
+			$(".fan").on('tap',function () {
+				window.location.href='login.html'
+			})
+		})
+	</script>
+</html>

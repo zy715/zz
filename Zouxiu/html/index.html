@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/ba.css"/>
+		<link rel="stylesheet" type="text/css" href="../js/swiper-3.3.1.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../js/animate.min.css"/>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			html,body,.out{width: 100%;height: 100%;}
+			.con span{
+				width: 0.14rem;
+				height: 0.14rem;
+				
+			}
+			.swiper-slide{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background: #F8F3F7;
+			}
+			.i1{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 5.43rem;
+			}
+			.i2{
+				position: absolute;
+				top: 5rem;
+				width:100%;
+				height: 2.7rem;
+			}
+			.in1{
+				position: absolute;
+				top: 0.8rem;
+				left: 3rem;
+				height: 1.6rem;
+			}
+			.in2{
+				position: absolute;
+				top: 3rem;
+				left: 2rem;
+				width: 2rem;
+			}
+			.in3{
+				position: absolute;
+				top: 3.8rem;
+				left: 2rem;
+				width: 2.2rem;
+			}
+			.in4{
+				position: absolute;
+				top: 7.2rem;
+				left: 0.5rem;
+				height: 2.13rem;
+			}
+			.inm1{
+				width: 2.4rem;
+			    position: absolute;
+			    top: 2rem;
+			    left: 1.8rem;
+			}
+			.inm2{
+			    position: absolute;
+			    top: 3.4rem;
+			    width: 3.4rem;
+			    left: 1.3rem;
+			}
+			.inm3{
+				position: absolute;
+			    width: 3.4rem;
+			    top: 6.9rem;
+			    left: 1.4rem;
+			}
+			.nm1{
+				width: 0.6rem;
+				position: absolute;
+				top: 1.6rem;
+    			left: 2.7rem;
+			}
+			.nm2{
+				position: absolute;
+			    top: 4.3rem;
+			    height: 0.7rem;
+			    left: 0.4rem;
+			}
+			.nm3{
+				position: absolute;
+			    width: 2.9rem;
+			    top: 8.6rem;
+			    left: 1.5rem;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="swiper-container out">
+			<div class="swiper-wrapper out1">
+				<div class="swiper-slide">
+					<img class="i1 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/02.jpg"/>
+					<img class="i2 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/03.jpg"/>
+				</div>
+				
+				<div class="swiper-slide">
+					<img class="in1 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/04.jpg"/>
+					<img class="in2 ani" swiper-animate-effect="lightSpeedIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/05.jpg"/>
+					<img class="in3 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/06.jpg"/>
+					<img class="in4 ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/07.jpg"/>
+				</div>
+				
+				<div class="swiper-slide">
+					
+					<img class="inm1 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/08.jpg"/>
+					<img class="inm2 ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/09.jpg"/>
+					<img class="inm3 ani" swiper-animate-effect="lightSpeedIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/10.jpg"/>
+					
+				</div>
+				<div class="swiper-slide">
+					
+					<img class="nm1 ani" swiper-animate-effect="bounceInUp" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/11.jpg"/>
+					<img class="nm2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/12.jpg"/>
+					<img id="nm" class="nm3 ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../img/12-03.jpg"/>
+				
+				</div>
+				
+			</div>
+			 <!--如果需要分页器--> 
+			<div class="swiper-pagination con"></div>
+
+		</div>
+
+	</body>
+	<script src="../js/zepto.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/swiper-3.3.1.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/swiper.animate1.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			var mySwiper = new Swiper('.swiper-container', {
+				direction: 'horizontal',
+				// 如果需要分页器
+				pagination: '.swiper-pagination',
+				onInit: function(swiper) { //Swiper2.x的初始化是onFirstInit
+					swiperAnimateCache(swiper); //隐藏动画元素 
+					swiperAnimate(swiper); //初始化完成开始动画
+				},
+				onSlideChangeEnd: function(swiper) {
+					swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+				}
+
+			})
+			
+			$('#nm').on('tap',function () {
+				window.location.href = 'regist.html'
+			})
+			
+		}
+	</script>
+
+</html>

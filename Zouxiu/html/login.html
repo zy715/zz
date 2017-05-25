@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, 
+initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="blank" />
+<meta name="format-detection" content="telephone=no" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<script src="../js/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/zepto.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				background: #f3eff0;
+			}
+			input {
+				background: none;
+				border: none;
+			}
+			header{
+				width: 100%;
+				height: 0.88rem;
+				font-size: 0.34rem;
+				color: #fff;
+				line-height: 0.88rem;
+				text-align: center;
+				background: #a90506;
+			}
+			.user {
+				width:5.8rem;
+				height: 0.88rem;
+				background: #ffffff;
+				margin: 0.3rem auto 0.04rem;
+				border-radius: 0.05rem;
+				font-size: .26rem;
+				line-height: 0.88rem;
+				text-indent: .2rem;
+				color: #9b9b9b;
+			}
+			.user input {
+				margin-left: 0.04rem;
+				font-size: .26rem;
+			}
+			.psd {
+				width:5.8rem;
+				height: 0.88rem;
+				background: #ffffff;
+				margin: 0 auto;
+				border-radius: 0.05rem;
+				font-size: .26rem;
+				line-height: 0.88rem;
+				text-indent: .2rem;
+				color: #9b9b9b;
+			}
+			.psd input {
+				margin-left: 0.04rem;
+				font-size: .26rem;
+			}
+			.rem {
+				width: 5.8rem;
+				height: .37rem;
+				margin: .5rem auto 0;
+				font-size: 0.3rem;
+				line-height: .37rem;
+			}
+			.rem input {
+				height: .37rem;
+				width: .37rem;
+				float: left;
+				margin-right: 0.07rem;
+			}
+			.rem a {
+				color: red;
+			}
+			.zd {
+				width: 5.8rem;
+				height: .37rem;
+				margin: .5rem auto 0;
+				font-size: 0.3rem;
+				line-height: .37rem;
+			}
+			.zd input {
+				height: .37rem;
+				width: .37rem;
+				float: left;
+				margin-right: 0.07rem;
+			}
+			.login {
+				width:5.8rem;
+				height: 0.9rem;
+				font-size: .35rem;
+				line-height: .9rem;
+				text-align: center;
+				border: 1px solid #000;
+				background:#c60808;
+				margin:0.5rem auto 0;
+				font-weight: 600;
+				color: #fff;
+				border-radius: 0.05rem;
+				display: block;
+			}
+			.regist {
+				width:5.8rem;
+				height: 0.9rem;
+				font-size: .35rem;
+				line-height: .9rem;
+				text-align: center;
+				border: 1px solid #000;
+				background:#3e3e3e;
+				margin:0.1rem auto 0;  
+				font-weight: 600;
+				color: #fff;
+				border-radius: 0.05rem;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			开心摇摇用户登录
+		</header>
+		<div>
+			<div class="user">
+				请输入账户<input type="text"  id="user"/>
+			</div>
+		</div>
+		<div>
+			<div class="psd">
+				请输入密码<input type="password" id="psd"/>
+			</div>
+		</div>
+		<div>
+			<div class="rem">
+				<input type="checkbox" name="" id="spsd"/>
+				<label for="spsd">显示密码</label>
+				<a href="###">忘记密码?</a>
+			</div>
+		</div>
+		<div>
+			<div class="zd">
+				<input type="checkbox" name="" id="szd"/>
+				<label for="szd">记住密码自动登录</label>
+			</div>
+		</div>
+		<div>
+			<a class="login">登录</a>
+		</div>
+		<div>
+			<a class="regist">注册</a>
+		</div>
+		
+	</body>
+	
+	<script type="text/javascript">
+		$(function () {
+			$('.login').on('tap',function () {
+				if ($('#user').val()!=''&&$('#psd').val()!=''){
+					$.ajax({
+						type:"get",
+						url:" http://datainfo.duapp.com/shopdata/userinfo.php",
+						dataType:'JSON',
+						data:{
+							status:'login',
+							userID:$('#user').val(),
+							password:$('#psd').val()
+						},
+						success:function (data) {
+							if (data==0) {
+								alert('您还未注册亲先注册哦')
+							}else if (data==2) {
+								alert('用户和密码不匹配')
+							}else{
+								window.location.href = 'list.html?user='+$('#user').val()
+								 if ($('#szd').attr('checked')) {
+       						localStorage.setItem("user",$("#user").val())
+       						
+   						 } else {
+        					
+    					}
+							}
+						}
+					});
+				}else{
+					alert('不能为空')
+				}
+			})
+			$(".regist").on('tap',function () {
+				window.location.href='regist.html'
+			})
+			
+			$('#spsd').on('tap',function () {
+				if ($('#spsd').is(':checked')) {
+					$('#psd').attr('type','text')
+				}else{
+					$('#psd').attr('type','password')
+				}
+			})
+			
+			
+		})
+	</script>
+</html>
